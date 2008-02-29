@@ -1,9 +1,17 @@
-# modules/skeleton/manifests/init.pp - manage skeleton stuff
+# modules/webapp-config/manifests/init.pp - manage webapp-config stuff
 # Copyright (C) 2007 admin@immerda.ch
 #
 
-# modules_dir { "skeleton": }
+# modules_dir { "webapp-config": }
 
-class skeleton {
+class webapp-config {
+   package { 'webapp-config':
+        ensure => present,
+        category => $operatingsystem ? {
+            gentoo => 'app-admin',
+            default => '',
+        }
+   }
+
 
 }
